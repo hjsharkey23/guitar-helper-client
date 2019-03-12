@@ -50,6 +50,10 @@ const signOutSuccess = function () {
   $('form').trigger('reset')
   $('form').trigger('reset')
   $('input').trigger('reset')
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
   setTimeout(() => {
     $('#message').text('')
   }, 2000)
