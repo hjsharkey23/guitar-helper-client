@@ -34,6 +34,9 @@ const signInSuccess = function (data) {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#create-song').show()
+  $('#song-update').show()
+  $('#song-delete').show()
+  $('#show-songs-button').show()
 }
 
 const signInFailure = function () {
@@ -55,6 +58,11 @@ const signOutSuccess = function () {
   $('#change-password').hide()
   $('#sign-up').show()
   $('#sign-in').show()
+  $('#create-song').hide()
+  $('#song-update').hide()
+  $('#song-delete').hide()
+  $('#show-songs-button').hide()
+  $('#songs-display').html('')
   setTimeout(() => {
     $('#message').text('')
   }, 2000)
