@@ -34,8 +34,21 @@ const destroy = function (id) {
   })
 }
 
+const update = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/songs/' + data.song.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+    // data: data
+  })
+}
+
 module.exports = {
   create,
   index,
-  destroy
+  destroy,
+  update
 }

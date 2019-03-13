@@ -34,9 +34,25 @@ const onIndexFailure = function () {
   }, 3000)
 }
 
+const onUpdateSuccess = function () {
+  $('#message').text('Example successfully updated')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  console.log('Example successfully updated')
+}
+
+const onUpdateFailure = function (error) {
+  $('#message').text('Error on updating example')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  console.error('onUpdateFailure ran. Error is :', error)
+}
+
 module.exports = {
   createSongSuccess,
   createSongFailure,
   onIndexSuccess,
-  onIndexFailure
+  onIndexFailure,
+  onUpdateSuccess,
+  onUpdateFailure
 }
