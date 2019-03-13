@@ -33,6 +33,7 @@ const signInSuccess = function (data) {
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#create-song').show()
 }
 
 const signInFailure = function () {

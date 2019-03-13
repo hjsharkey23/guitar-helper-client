@@ -1,6 +1,7 @@
 'use strict'
 
 const authEvents = require('./auth/auth-events.js')
+const events = require('./crud/events.js')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -8,7 +9,9 @@ const authEvents = require('./auth/auth-events.js')
 // require('./example')
 
 $(() => {
+  events.addHandlers()
   authEvents.addHandlers()
   $('#sign-out').hide()
   $('#change-password').hide()
+  $('#create-song').hide()
 })
