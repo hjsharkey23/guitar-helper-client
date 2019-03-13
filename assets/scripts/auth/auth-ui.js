@@ -3,7 +3,6 @@
 const store = require('../store.js')
 
 const signUpSuccess = function (data) {
-  console.log('signed up!')
   $('#message').text('Signed up successfully, please sign in!')
   $('#message').removeClass()
   $('#message').addClass('success')
