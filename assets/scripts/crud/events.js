@@ -13,7 +13,9 @@ const onCreateSong = function () {
   if (song.title === '') {
     $('#message').html('<p>Title is required!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Title is required!')
+    setTimeout(() => {
+      $('#message').text('')
+    }, 3000)
     return false
   } else {
     api.create(data)
@@ -31,7 +33,6 @@ const onGetSongs = function (event) {
 
 const onUpdateSong = function (event) {
   event.preventDefault()
-  console.log('onUpdateExample ran!')
 
   const data = getFormFields(event.target)
   const song = data.song
@@ -39,7 +40,9 @@ const onUpdateSong = function (event) {
   if (song.title === '') {
     $('#message').html('<p>Title is required!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Title is required!')
+    setTimeout(() => {
+      $('#message').text('')
+    }, 3000)
     return false
   }
   if (song.id.length !== 0) {
@@ -49,13 +52,14 @@ const onUpdateSong = function (event) {
   } else {
     $('#message').html('<p>Please provide a song id!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Please provide a song id!')
+    setTimeout(() => {
+      $('#message').text('')
+    }, 3000)
   }
 }
 
 const onDeleteSong = function (event) {
   event.preventDefault()
-  console.log('onDeleteSong ran!')
 
   const data = getFormFields(event.target)
   const song = data.song
@@ -67,7 +71,9 @@ const onDeleteSong = function (event) {
   } else {
     $('#message').html('<p>Please provide a song id!</p>')
     $('#message').css('background-color', 'red')
-    console.log('Please provide a sonf id!')
+    setTimeout(() => {
+      $('#message').text('')
+    }, 3000)
   }
 }
 
