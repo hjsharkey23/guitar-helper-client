@@ -13,8 +13,16 @@ const onCreateSong = function () {
     .catch(ui.createSongFailure)
 }
 
+const onGetSongs = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onError)
+}
+
 const addHandlers = () => {
   $('#create-song').on('submit', onCreateSong)
+  $('#show-songs-button').on('submit', onGetSongs)
 }
 
 module.exports = {

@@ -20,7 +20,13 @@ const createSongFailure = function () {
   }, 3000)
 }
 
+const onIndexSuccess = function (responseData) {
+  console.log(responseData)
+  $('#songs-display').html(`Songs: ${JSON.stringify(responseData)}`)
+}
+
 module.exports = {
   createSongSuccess,
-  createSongFailure
+  createSongFailure,
+  onIndexSuccess
 }
