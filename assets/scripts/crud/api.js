@@ -24,6 +24,16 @@ const index = function () {
   })
 }
 
+const userIndex = function () {
+  return $.ajax({
+    url: config.apiUrl + `/user-songs`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const destroy = function (id) {
   return $.ajax({
     url: config.apiUrl + '/songs/' + id,
@@ -50,5 +60,6 @@ module.exports = {
   create,
   index,
   destroy,
-  update
+  update,
+  userIndex
 }

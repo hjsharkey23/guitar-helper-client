@@ -26,9 +26,16 @@ const onCreateSong = function () {
   }
 }
 
-const onGetSongs = function (event) {
+// const onGetSongs = function (event) {
+//   event.preventDefault()
+//   api.index()
+//     .then(ui.onIndexSuccess)
+//     .catch(ui.onError)
+// }
+
+const onGetUserSongs = function (event) {
   event.preventDefault()
-  api.index()
+  api.userIndex()
     .then(ui.onIndexSuccess)
     .catch(ui.onError)
 }
@@ -98,7 +105,7 @@ const onClearSongs = (event) => {
 
 const addHandlers = () => {
   $('#create-song').on('submit', onCreateSong)
-  $('#show-songs-button').on('submit', onGetSongs)
+  $('#show-songs-button').on('submit', onGetUserSongs)
   $('#song-update').on('submit', onUpdateSong)
   $('#song-delete').on('submit', onDeleteSong)
   $('#clear-songs-button').on('submit', onClearSongs)
