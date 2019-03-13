@@ -35,17 +35,31 @@ const onIndexFailure = function () {
 }
 
 const onUpdateSuccess = function () {
-  $('#message').text('Example successfully updated')
+  $('#message').text('Song successfully updated')
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('Example successfully updated')
 }
 
 const onUpdateFailure = function (error) {
-  $('#message').text('Error on updating example')
+  $('#message').text('Error on updating song')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.error('onUpdateFailure ran. Error is :', error)
+}
+
+const onDestroySuccess = function () {
+  $('#message').text('Song successfully deleted')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  console.log('Example successfully deleted')
+}
+
+const onDestroyFailure = function (error) {
+  $('#message').text('Error on deleting song')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  console.error('onDestroyFailure ran. Error is :', error)
 }
 
 module.exports = {
@@ -54,5 +68,7 @@ module.exports = {
   onIndexSuccess,
   onIndexFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  onDestroySuccess,
+  onDestroyFailure
 }

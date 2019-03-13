@@ -44,10 +44,29 @@ const onUpdateSong = function (event) {
   }
 }
 
+const onDeleteSong = function (event) {
+  event.preventDefault()
+  console.log('onDeleteSong ran!')
+
+  const data = getFormFields(event.target)
+  const song = data.song
+
+  if (song.id.length !== 0) {
+    api.destroy(song.id)
+      .then(ui.onDestroySuccess)
+      .catch(ui.onDestroyFailure)
+  } else {
+    $('#message').html('<p>Please provide a song id!</p>')
+    $('#message').css('background-color', 'red')
+    console.log('Please provide a sonf id!')
+  }
+}
+
 const addHandlers = () => {
   $('#create-song').on('submit', onCreateSong)
   $('#show-songs-button').on('submit', onGetSongs)
   $('#song-update').on('submit', onUpdateSong)
+  $('#song-delete').on('submit', onDeleteSong)
 }
 
 module.exports = {
