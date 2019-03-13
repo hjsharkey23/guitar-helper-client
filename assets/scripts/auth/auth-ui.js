@@ -9,6 +9,9 @@ const signUpSuccess = function (data) {
   $('#message').addClass('success')
   $('form').trigger('reset')
   $('input').trigger('reset')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 const signUpFailure = function () {
@@ -17,6 +20,9 @@ const signUpFailure = function () {
   $('#message').addClass('failure')
   $('form').trigger('reset')
   $('input').trigger('reset')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 const signInSuccess = function (data) {
@@ -45,6 +51,9 @@ const signInFailure = function () {
   $('#message').addClass('failure')
   $('form').trigger('reset')
   $('input').trigger('reset')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 const signOutSuccess = function () {
@@ -75,6 +84,9 @@ const signOutFailure = function () {
   $('#message').addClass('failure')
   $('form').trigger('reset')
   $('input').trigger('reset')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 const changePasswordSuccess = function () {
@@ -95,7 +107,9 @@ const changePasswordFailure = function () {
   $('#message').addClass('failure')
   $('form').trigger('reset')
   $('input').trigger('reset')
-  // console.error('changePasswordFailure ran. Error is :', error)
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 module.exports = {

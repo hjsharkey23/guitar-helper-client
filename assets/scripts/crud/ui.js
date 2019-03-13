@@ -38,28 +38,36 @@ const onUpdateSuccess = function () {
   $('#message').text('Song successfully updated')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Example successfully updated')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
-const onUpdateFailure = function (error) {
+const onUpdateFailure = function () {
   $('#message').text('Error on updating song')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onUpdateFailure ran. Error is :', error)
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 const onDestroySuccess = function () {
   $('#message').text('Song successfully deleted')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Example successfully deleted')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
-const onDestroyFailure = function (error) {
+const onDestroyFailure = function () {
   $('#message').text('Error on deleting song')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onDestroyFailure ran. Error is :', error)
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
 }
 
 module.exports = {
