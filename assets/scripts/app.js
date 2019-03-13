@@ -14,4 +14,7 @@ $(() => {
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#create-song').hide()
+  $('#song-update').hide()
+  $('#song-delete').hide()
+  $('#show-songs-button').hide()
 })
