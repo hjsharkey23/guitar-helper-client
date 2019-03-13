@@ -13,6 +13,8 @@ const onCreateSong = function () {
   if (song.title === '') {
     $('#message').html('<p>Title is required!</p>')
     $('#message').css('background-color', 'red')
+    $('form').trigger('reset')
+    $('input').trigger('reset')
     setTimeout(() => {
       $('#message').text('')
     }, 3000)
@@ -40,6 +42,8 @@ const onUpdateSong = function (event) {
   if (song.title === '') {
     $('#message').html('<p>Title is required!</p>')
     $('#message').css('background-color', 'red')
+    $('form').trigger('reset')
+    $('input').trigger('reset')
     setTimeout(() => {
       $('#message').text('')
     }, 3000)
@@ -52,6 +56,8 @@ const onUpdateSong = function (event) {
   } else {
     $('#message').html('<p>Please provide a song id!</p>')
     $('#message').css('background-color', 'red')
+    $('form').trigger('reset')
+    $('input').trigger('reset')
     setTimeout(() => {
       $('#message').text('')
     }, 3000)
@@ -68,12 +74,25 @@ const onDeleteSong = function (event) {
     api.destroy(song.id)
       .then(ui.onDestroySuccess)
       .catch(ui.onDestroyFailure)
+    $('form').trigger('reset')
+    $('input').trigger('reset')
   } else {
     $('#message').html('<p>Please provide a song id!</p>')
     $('#message').css('background-color', 'red')
+    $('form').trigger('reset')
+    $('input').trigger('reset')
     setTimeout(() => {
       $('#message').text('')
     }, 3000)
+  }
+}
+
+const onClearSongs = (event) => {
+  event.preventDefault()
+  if ($('#songs-display').is(':empty')) {
+    ui.clearSongsFailure()
+  } else {
+    ui.clearSongs()
   }
 }
 
@@ -82,6 +101,7 @@ const addHandlers = () => {
   $('#show-songs-button').on('submit', onGetSongs)
   $('#song-update').on('submit', onUpdateSong)
   $('#song-delete').on('submit', onDeleteSong)
+  $('#clear-songs-button').on('submit', onClearSongs)
 }
 
 module.exports = {
