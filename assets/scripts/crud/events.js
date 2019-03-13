@@ -8,9 +8,18 @@ const ui = require('./ui.js')
 const onCreateSong = function () {
   event.preventDefault()
   const data = getFormFields(this)
-  api.create(data)
-    .then(ui.createSongSuccess)
-    .catch(ui.createSongFailure)
+  const song = data.song
+
+  if (song.title === '') {
+    $('#message').html('<p>Title is required!</p>')
+    $('#message').css('background-color', 'red')
+    console.log('Title is required!')
+    return false
+  } else {
+    api.create(data)
+      .then(ui.createSongSuccess)
+      .catch(ui.createSongFailure)
+  }
 }
 
 const onGetSongs = function (event) {
