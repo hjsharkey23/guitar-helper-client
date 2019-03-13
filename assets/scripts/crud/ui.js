@@ -25,8 +25,18 @@ const onIndexSuccess = function (responseData) {
   $('#songs-display').html(`Songs: ${JSON.stringify(responseData)}`)
 }
 
+const onIndexFailure = function () {
+  $('#message').text('Failed to get songs, try again.')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  setTimeout(() => {
+    $('#message').text('')
+  }, 3000)
+}
+
 module.exports = {
   createSongSuccess,
   createSongFailure,
-  onIndexSuccess
+  onIndexSuccess,
+  onIndexFailure
 }
