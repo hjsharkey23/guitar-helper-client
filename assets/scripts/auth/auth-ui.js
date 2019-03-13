@@ -42,6 +42,7 @@ const signInSuccess = function (data) {
   $('#song-update').show()
   $('#song-delete').show()
   $('#show-songs-button').show()
+  $('#clear-songs-button').show()
 }
 
 const signInFailure = function () {
@@ -70,6 +71,7 @@ const signOutSuccess = function () {
   $('#song-update').hide()
   $('#song-delete').hide()
   $('#show-songs-button').hide()
+  $('#clear-songs-button').hide()
   $('#songs-display').html('')
   setTimeout(() => {
     $('#message').text('')
@@ -100,7 +102,6 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function () {
-  console.log('error changing pw')
   $('#message').text('Error on change password')
   $('#message').removeClass()
   $('#message').addClass('failure')

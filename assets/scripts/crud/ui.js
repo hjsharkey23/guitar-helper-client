@@ -25,7 +25,6 @@ const createSongFailure = function () {
 }
 
 const onIndexSuccess = function (responseData) {
-  console.log(responseData)
   $('#songs-display').html(`Songs: ${JSON.stringify(responseData)}`)
 }
 

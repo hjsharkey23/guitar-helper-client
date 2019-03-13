@@ -17,4 +17,5 @@ $(() => {
   $('#song-update').hide()
   $('#song-delete').hide()
   $('#show-songs-button').hide()
+  $('#clear-songs-button').hide()
 })
