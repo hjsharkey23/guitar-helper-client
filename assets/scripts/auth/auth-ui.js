@@ -42,7 +42,6 @@ const signInSuccess = function (data) {
   $('#song-update').show()
   $('#song-delete').show()
   $('#show-songs-button').show()
-  $('#clear-songs-button').show()
 }
 
 const signInFailure = function () {

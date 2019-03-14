@@ -37,7 +37,7 @@ const onGetUserSongs = function (event) {
   event.preventDefault()
   api.userIndex()
     .then(ui.onIndexSuccess)
-    .catch(ui.onError)
+    .catch(ui.onIndexFailure)
 }
 
 const onUpdateSong = function (event) {
