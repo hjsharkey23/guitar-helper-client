@@ -4,7 +4,6 @@ const config = require('../config.js')
 const store = require('../store')
 
 const create = function (formData) {
-  console.log(formData)
   return $.ajax({
     url: config.apiUrl + '/songs',
     method: 'POST',
