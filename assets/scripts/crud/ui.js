@@ -2,6 +2,9 @@
 const store = require('../store.js')
 
 const createSongSuccess = function (data) {
+  $('#songs-display').text('')
+  $('#show-songs-button').show()
+  $('#clear-songs-button').hide()
   $('#message').text('Created song successfully.')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -26,12 +29,22 @@ const createSongFailure = function () {
 
 const onIndexSuccess = function (responseData) {
   $('#songs-display').html(`Songs: ${JSON.stringify(responseData)}`)
+  if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
+    $('#songs-display').html('No songs yet. Make one!')
+  }
+  $('#show-songs-button').hide()
+  $('#clear-songs-button').show()
 }
 
+// const onIndexEmpty = function () {
+//   $('#message').text('Failed to get songs, try again.')
+// }
+
 const onIndexFailure = function () {
-  $('#message').text('Failed to get songs, try again.')
+  $('#message').text('No songs to display')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#songs-display').text('')
   $('form').trigger('reset')
   $('input').trigger('reset')
   setTimeout(() => {
@@ -40,6 +53,9 @@ const onIndexFailure = function () {
 }
 
 const onUpdateSuccess = function () {
+  $('#songs-display').text('')
+  $('#show-songs-button').show()
+  $('#clear-songs-button').hide()
   $('#message').text('Song successfully updated')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -62,6 +78,9 @@ const onUpdateFailure = function () {
 }
 
 const onDestroySuccess = function () {
+  $('#songs-display').text('')
+  $('#show-songs-button').show()
+  $('#clear-songs-button').hide()
   $('#message').text('Song successfully deleted')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -85,6 +104,8 @@ const onDestroyFailure = function () {
 
 const clearSongs = () => {
   $('#songs-display').empty()
+  $('#clear-songs-button').hide()
+  $('#show-songs-button').show()
 }
 
 const clearSongsFailure = () => {
