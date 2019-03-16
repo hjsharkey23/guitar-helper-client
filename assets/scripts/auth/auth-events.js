@@ -40,11 +40,25 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onSwitchToSignUp = function (event) {
+  event.preventDefault()
+  $('.login-form').hide()
+  $('.register-form').show()
+}
+
+const onSwitchToSignIn = function (event) {
+  event.preventDefault()
+  $('.login-form').show()
+  $('.register-form').hide()
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
+  $('.login-form').on('submit', onSignIn)
+  $('#sign-out-button').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#create-an-account').on('click', onSwitchToSignUp)
+  $('#sign-in-switch').on('click', onSwitchToSignIn)
 }
 
 module.exports = {

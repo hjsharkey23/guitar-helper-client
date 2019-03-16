@@ -34,7 +34,8 @@ const signInSuccess = function (data) {
     $('#message').text('')
   }, 3000)
   store.user = data.user
-  $('#sign-out').show()
+  $('.login-page').hide()
+  $('#sign-out-button').show()
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -56,13 +57,14 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $('.login-page').show()
   $('#message').text('Signed out successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
   $('form').trigger('reset')
   $('input').trigger('reset')
-  $('#sign-out').hide()
+  $('#sign-out-button').hide()
   $('#change-password').hide()
   $('#sign-up').show()
   $('#sign-in').show()
