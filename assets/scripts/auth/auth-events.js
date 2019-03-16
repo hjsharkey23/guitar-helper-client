@@ -53,7 +53,7 @@ const onSwitchToSignIn = function (event) {
 }
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
+  $('.register-form').on('submit', onSignUp)
   $('.login-form').on('submit', onSignIn)
   $('#sign-out-button').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)

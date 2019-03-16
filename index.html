@@ -62,14 +62,14 @@
     <form class="register-form">
       <input type="text" name="credentials[email]" placeholder="email address"/>
       <input type="password" name="credentials[password]" placeholder="password"/>
-      <input type="password" name="credentials[password]" placeholder="password"/>
-      <button>create</button>
+      <input type="password" name="credentials[password_confirmation]" placeholder="confirm password"/>
+      <input class=register-button type="submit" value="create">
       <p class="login-message">Already registered? <a id="sign-in-switch" href="#">Sign In</a></p>
     </form>
     <form class="login-form">
-      <input type="text" name="credentials[email]" placeholder="username"/>
+      <input type="text" name="credentials[email]" placeholder="email address"/>
       <input type="password" name="credentials[password]" placeholder="password"/>
-      <input type="submit" value="login">
+      <input class="register-button" type="submit" value="login">
       <p class="login-message">Not registered? <a id="create-an-account" href="#">Create an account</a></p>
       <p class="login-message" id="message"></p>
     </form>

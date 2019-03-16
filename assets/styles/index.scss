@@ -42,6 +42,10 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
+.form .register-button {
+  background: #4CAF50;
+}
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }
