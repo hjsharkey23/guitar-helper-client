@@ -30,6 +30,7 @@ const createSongFailure = function () {
 }
 
 const onIndexSuccess = function (data) {
+  clearSongs()
   // $('#songs-display').html(`Songs: ${JSON.stringify(data)}`)
   // if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
   //   $('#songs-display').html('No songs yet. Make one!')
@@ -82,17 +83,17 @@ const onUpdateFailure = function () {
 }
 
 const onDestroySuccess = function () {
-  $('#songs-display').text('')
+  // $('#songs-display').text('')
   $('#show-songs-button').show()
   $('#clear-songs-button').hide()
-  $('#message').text('Song successfully deleted')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  $('form').trigger('reset')
-  $('input').trigger('reset')
-  setTimeout(() => {
-    $('#message').text('')
-  }, 3000)
+  // $('#message').text('Song successfully deleted')
+  // $('#message').removeClass()
+  // $('#message').addClass('success')
+  // $('form').trigger('reset')
+  // $('input').trigger('reset')
+  // setTimeout(() => {
+  //   $('#message').text('')
+  // }, 3000)
 }
 
 const onDestroyFailure = function () {

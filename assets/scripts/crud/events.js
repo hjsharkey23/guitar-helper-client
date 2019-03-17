@@ -74,39 +74,36 @@ const onUpdateSong = function (event) {
 const onDeleteSong = function (event) {
   event.preventDefault()
 
-  const data = getFormFields(event.target)
-  const song = data.song
+  const id = $(event.target).closest('section').data('id')
 
-  if (song.id.length !== 0) {
-    api.destroy(song.id)
-      .then(ui.onDestroySuccess)
-      .catch(ui.onDestroyFailure)
-    $('form').trigger('reset')
-    $('input').trigger('reset')
-  } else {
-    $('#message').html('<p>Please provide a song id!</p>')
-    $('#message').css('background-color', 'red')
-    $('form').trigger('reset')
-    $('input').trigger('reset')
-    setTimeout(() => {
-      $('#message').text('')
-    }, 3000)
-  }
+  api.destroy(id)
+    .then(function () {
+      ui.onDestroySuccess()
+      firstIndex()
+    })
+    .catch(ui.errorMessage)
 }
 
 const onClearSongs = (event) => {
   event.preventDefault()
   ui.clearSongs()
+  // .catch(ui.clearSongsFailure)
 }
 
+const firstIndex = () => {
+  api.userIndex()
+    .then(ui.onIndexSuccess)
+    .catch(ui.errorMessage)
+}
 const addHandlers = () => {
   $('#create-song').on('submit', onCreateSong)
   $('#show-songs-button').on('submit', onGetUserSongs)
   $('#song-update').on('submit', onUpdateSong)
-  $('#song-delete').on('submit', onDeleteSong)
+  $('.content').on('click', '.delete-song', onDeleteSong)
   $('#clear-songs-button').on('submit', onClearSongs)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  firstIndex
 }

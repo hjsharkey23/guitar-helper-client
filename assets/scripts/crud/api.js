@@ -36,7 +36,7 @@ const userIndex = function () {
 
 const destroy = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/songs/' + id,
+    url: config.apiUrl + `/songs/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
