@@ -5,40 +5,17 @@ const getFormFields = require(`../../../lib/get-form-fields.js`)
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-const onCreateSong = function () {
+const onCreateSong = function (event) {
   event.preventDefault()
-  firstIndex()
+
   const data = getFormFields(this)
-  const song = data.song
 
-  if (song.title === '') {
-    $('#message').html('<p>Title is required!</p>')
-    $('#message').css('background-color', 'red')
-    $('form').trigger('reset')
-    $('input').trigger('reset')
-    setTimeout(() => {
-      $('#message').text('')
-    }, 3000)
-    return false
-  } else {
-    api.create(data)
-      .then(ui.createSongSuccess)
-      .catch(ui.createSongFailure)
-  }
-}
-
-// const onGetSongs = function (event) {
-//   event.preventDefault()
-//   api.index()
-//     .then(ui.onIndexSuccess)
-//     .catch(ui.onError)
-// }
-
-const onGetUserSongs = function (event) {
-  event.preventDefault()
-  api.userIndex()
-    .then(ui.onIndexSuccess)
-    .catch(ui.onIndexFailure)
+  api.create(data)
+    .then(function () {
+      ui.createSongSuccess()
+      firstIndex()
+    })
+    .catch(ui.createSongFailure)
 }
 
 const onUpdateSong = function (event) {
@@ -53,6 +30,20 @@ const onUpdateSong = function (event) {
       firstIndex()
     })
     .catch(ui.onUpdateFailure)
+}
+
+// const onGetSongs = function (event) {
+//   event.preventDefault()
+//   api.index()
+//     .then(ui.onIndexSuccess)
+//     .catch(ui.onError)
+// }
+
+const onGetUserSongs = function (event) {
+  event.preventDefault()
+  api.userIndex()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
 }
 
 const onDeleteSong = function (event) {
@@ -76,7 +67,7 @@ const onClearSongs = (event) => {
 
 const firstIndex = () => {
   api.userIndex()
-    .then(ui.onFirstIndexSuccess)
+    .then(ui.onIndexSuccess)
     .catch(ui.errorMessage)
 }
 const addHandlers = () => {
