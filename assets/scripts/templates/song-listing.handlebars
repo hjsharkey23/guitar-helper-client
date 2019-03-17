@@ -14,6 +14,30 @@
         No artist provided.
       {{/if}}
     </p>
+    <p>
+      <small>Tuning:</small>
+      {{#if song.tuning}}
+        {{song.tuning}}
+      {{else}}
+        No tuning provided.
+      {{/if}}
+    </p>
+    <p>
+      <small>Capo:</small>
+      {{#if song.capo}}
+        {{song.capo}}
+      {{else}}
+        No capo provided.
+      {{/if}}
+    </p>
+    <p>
+      <small>Chords:</small>
+      {{#if song.chords}}
+        {{song.chords}}
+      {{else}}
+        No chords provided.
+      {{/if}}
+    </p>
     <button type="submit" class="btn btn-danger delete-song">Remove</button>
   </section>
 
