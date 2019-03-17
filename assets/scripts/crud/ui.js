@@ -30,6 +30,18 @@ const createSongFailure = function () {
 }
 
 const onIndexSuccess = function (data) {
+  // clearSongs()
+  // $('#songs-display').html(`Songs: ${JSON.stringify(data)}`)
+  // if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
+  //   $('#songs-display').html('No songs yet. Make one!')
+  // }
+  const showSongsHtml = showSongsTemplate({ songs: data.songs })
+  $('.content').append(showSongsHtml)
+  $('#show-songs-button').hide()
+  $('#clear-songs-button').show()
+}
+
+const onFirstIndexSuccess = function (data) {
   clearSongs()
   // $('#songs-display').html(`Songs: ${JSON.stringify(data)}`)
   // if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
@@ -132,5 +144,6 @@ module.exports = {
   onDestroySuccess,
   onDestroyFailure,
   clearSongs,
-  clearSongsFailure
+  clearSongsFailure,
+  onFirstIndexSuccess
 }

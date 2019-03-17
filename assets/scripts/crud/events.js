@@ -7,6 +7,7 @@ const ui = require('./ui.js')
 
 const onCreateSong = function () {
   event.preventDefault()
+  firstIndex()
   const data = getFormFields(this)
   const song = data.song
 
@@ -92,7 +93,7 @@ const onClearSongs = (event) => {
 
 const firstIndex = () => {
   api.userIndex()
-    .then(ui.onIndexSuccess)
+    .then(ui.onFirstIndexSuccess)
     .catch(ui.errorMessage)
 }
 const addHandlers = () => {
