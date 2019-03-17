@@ -50,6 +50,7 @@ const onUpdateSong = function (event) {
   api.update(id, formData)
     .then(function () {
       ui.onUpdateSuccess(id)
+      firstIndex()
     })
     .catch(ui.onUpdateFailure)
 }

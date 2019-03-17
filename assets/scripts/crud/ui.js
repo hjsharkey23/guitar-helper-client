@@ -72,7 +72,10 @@ const onIndexFailure = function () {
 }
 
 const onUpdateSuccess = function () {
-  $('#songs-display').text('')
+  $('#editSongModal').modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+  // $('#songs-display').text('')
   $('#show-songs-button').show()
   $('#clear-songs-button').hide()
   $('#message').text('Song successfully updated')
