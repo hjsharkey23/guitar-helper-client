@@ -35,7 +35,7 @@ const onIndexSuccess = function (data) {
   //   $('#songs-display').html('No songs yet. Make one!')
   // }
   const showSongsHtml = showSongsTemplate({ songs: data.songs })
-  $('.content').html(showSongsHtml)
+  $('.content').append(showSongsHtml)
   $('#show-songs-button').hide()
   $('#clear-songs-button').show()
 }
@@ -107,7 +107,7 @@ const onDestroyFailure = function () {
 }
 
 const clearSongs = () => {
-  $('#songs-display').empty()
+  $('.content').empty()
   $('#clear-songs-button').hide()
   $('#show-songs-button').show()
 }

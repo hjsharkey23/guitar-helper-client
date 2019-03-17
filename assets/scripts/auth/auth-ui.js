@@ -57,6 +57,7 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $('.content').hide()
   $('.login-page').show()
   $('#message').text('Signed out successfully')
   $('#message').removeClass()

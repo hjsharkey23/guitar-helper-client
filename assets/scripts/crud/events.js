@@ -96,11 +96,7 @@ const onDeleteSong = function (event) {
 
 const onClearSongs = (event) => {
   event.preventDefault()
-  if ($('#songs-display').is(':empty')) {
-    ui.clearSongsFailure()
-  } else {
-    ui.clearSongs()
-  }
+  ui.clearSongs()
 }
 
 const addHandlers = () => {
