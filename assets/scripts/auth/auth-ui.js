@@ -25,6 +25,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
+  // $('.content').empty()
   $('#sign-in-message').text('Signed in successfully')
   $('#sign-in-message').removeClass()
   $('#sign-in-message').addClass('success')

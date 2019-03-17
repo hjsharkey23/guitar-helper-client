@@ -30,7 +30,7 @@ const createSongFailure = function () {
 }
 
 const onIndexSuccess = function (data) {
-  // clearSongs()
+  clearSongs()
   // $('#songs-display').html(`Songs: ${JSON.stringify(data)}`)
   // if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
   //   $('#songs-display').html('No songs yet. Make one!')
@@ -39,6 +39,7 @@ const onIndexSuccess = function (data) {
   $('.content').append(showSongsHtml)
   $('#show-songs-button').hide()
   $('#clear-songs-button').show()
+  $('.content').show()
 }
 
 const onFirstIndexSuccess = function (data) {
@@ -51,6 +52,7 @@ const onFirstIndexSuccess = function (data) {
   $('.content').append(showSongsHtml)
   $('#show-songs-button').hide()
   $('#clear-songs-button').show()
+  $('.content').show()
 }
 
 // const onIndexEmpty = function () {
