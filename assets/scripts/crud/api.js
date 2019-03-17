@@ -36,7 +36,7 @@ const userIndex = function () {
 
 const destroy = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/songs/' + id,
+    url: config.apiUrl + `/songs/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -44,14 +44,14 @@ const destroy = function (id) {
   })
 }
 
-const update = function (data) {
+const update = function (id, formData) {
   return $.ajax({
-    url: config.apiUrl + '/songs/' + data.song.id,
+    url: config.apiUrl + `/songs/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: formData
     // data: data
   })
 }

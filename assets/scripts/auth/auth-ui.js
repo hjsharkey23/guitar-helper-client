@@ -3,38 +3,40 @@
 const store = require('../store.js')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully, please sign in!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#sign-up-message').text('Signed up successfully, please sign in!')
+  $('#sign-up-message').removeClass()
+  $('#sign-up-message').addClass('success')
   $('form').trigger('reset')
   $('input').trigger('reset')
   setTimeout(() => {
-    $('#message').text('')
+    $('#sign-up-message').text('')
   }, 3000)
 }
 
 const signUpFailure = function () {
-  $('#message').text('Error on sign up, try again.')
-  $('#message').removeClass()
+  $('#sign-up-message').text('Error on sign up, try again.')
+  $('#sign-up-message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
   $('input').trigger('reset')
   setTimeout(() => {
-    $('#message').text('')
+    $('#sign-up-message').text('')
   }, 3000)
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('.content').show()
+  $('#sign-in-message').text('Signed in successfully')
+  $('#sign-in-message').removeClass()
+  $('#sign-in-message').addClass('success')
   $('form').trigger('reset')
   $('input').trigger('reset')
   setTimeout(() => {
-    $('#message').text('')
+    $('#sign-in-message').text('')
   }, 3000)
   store.user = data.user
-  $('#sign-out').show()
+  $('.login-page').hide()
+  $('#dropdownMenuButton').show()
   $('#change-password').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -45,24 +47,26 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function () {
-  $('#message').text('Error on sign in, try again.')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#sign-in-message').text('Error on sign in, try again.')
+  $('#sign-in-message').removeClass()
+  $('#sign-in-message').addClass('failure')
   $('form').trigger('reset')
   $('input').trigger('reset')
   setTimeout(() => {
-    $('#message').text('')
+    $('#sign-in-message').text('')
   }, 3000)
 }
 
 const signOutSuccess = function () {
+  $('.content').hide()
+  $('.login-page').show()
   $('#message').text('Signed out successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
   $('form').trigger('reset')
   $('input').trigger('reset')
-  $('#sign-out').hide()
+  $('#dropdownMenuButton').hide()
   $('#change-password').hide()
   $('#sign-up').show()
   $('#sign-in').show()

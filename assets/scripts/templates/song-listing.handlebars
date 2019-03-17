@@ -1,0 +1,88 @@
+{{#each songs as |song|}}
+  {{log song}}
+
+
+  <section class="song" data-id="{{song.id}}">
+    <h2>
+      <small>Title:</small> {{limit song.title 40}}
+    </h2>
+    <p>
+      <small>Artist:</small>
+      {{#if song.artist}}
+        {{song.artist}}
+      {{else}}
+        No artist provided.
+      {{/if}}
+    </p>
+    <p>
+      <small>Tuning:</small>
+      {{#if song.tuning}}
+        {{song.tuning}}
+      {{else}}
+        No tuning provided.
+      {{/if}}
+    </p>
+    <p>
+      <small>Capo:</small>
+      {{#if song.capo}}
+        {{song.capo}}
+      {{else}}
+        No capo provided.
+      {{/if}}
+    </p>
+    <p>
+      <small>Chords:</small>
+      {{#if song.chords}}
+        {{song.chords}}
+      {{else}}
+        No chords provided.
+      {{/if}}
+    </p>
+    <button type="submit" class="btn btn-danger delete-song">Remove</button>
+    <button type="submit" class="btn btn-dark update-song" data-toggle="modal" data-target="#editSongModal-{{song.id}}">Edit</button>
+  </section>
+
+  <!-- Update event modal -->
+<div class="modal fade" id="editSongModal-{{song.id}}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title"><span class="header-1">Update</span>
+          <span class="header-2">Song</span></h1>
+      </div>
+      <div class="modal-body">
+        <div class="feedback-box">
+          <p class="user-feedback modal-feedback"></p>
+        </div>
+        <form class="update-song-form" id="update-song-form-{{song.id}}" data-id="{{song.id}}">
+          <div class="form-group">
+            <p class="form-field-label">Title:</p>
+            <input class="form-field modal-form-field" name="song[title]" placeholder="Title" type="text" value="{{song.title}}" required>
+          </div>
+          <div class="form-group">
+            <p class="form-field-label">Artist:</p>
+            <input class="form-field modal-form-field" name="song[artist]" placeholder="Artist" type="text" value="{{song.artist}}">
+          </div>
+          <div class="form-group">
+            <p class="form-field-label">Tuning:</p>
+            <input class="form-field modal-form-field" name="song[tuning]" placeholder="Capo" type="text" value="{{song.tuning}}">
+          </div>
+          <div class="form-group">
+            <p class="form-field-label">Capo:</p>
+            <input class="form-field modal-form-field" name="song[capo]" placeholder="Capo" type="text" value="{{song.capo}}">
+          </div>
+          <div class="form-group">
+            <p class="form-field-label">Chords:</p>
+            <input class="form-field modal-form-field" name="song[chords]" placeholder="Chords" type="text" value="{{song.chords}}">
+          </div>
+          <div class="modal-button-container">
+            <button type="button" data-dismiss="modal" class="button form-button">Cancel</button>
+            <input type="submit" class="button form-button modal-button" value="Update Song">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/each}}
