@@ -1,5 +1,7 @@
+'use strict'
 
 const store = require('../store.js')
+const showSongsTemplate = require('../templates/song-listing.handlebars')
 
 const createSongSuccess = function (data) {
   $('#songs-display').text('')
@@ -27,11 +29,13 @@ const createSongFailure = function () {
   }, 3000)
 }
 
-const onIndexSuccess = function (responseData) {
-  $('#songs-display').html(`Songs: ${JSON.stringify(responseData)}`)
-  if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
-    $('#songs-display').html('No songs yet. Make one!')
-  }
+const onIndexSuccess = function (data) {
+  // $('#songs-display').html(`Songs: ${JSON.stringify(data)}`)
+  // if ($('#songs-display').html() === 'Songs: {"songs":[]}') {
+  //   $('#songs-display').html('No songs yet. Make one!')
+  // }
+  const showSongsHtml = showSongsTemplate({ songs: data.songs })
+  $('.content').html(showSongsHtml)
   $('#show-songs-button').hide()
   $('#clear-songs-button').show()
 }

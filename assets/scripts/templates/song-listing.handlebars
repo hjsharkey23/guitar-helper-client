@@ -1,0 +1,20 @@
+{{#each songs as |song|}}
+  {{log song}}
+
+
+  <section class="song" data-id="{{song.id}}">
+    <h2>
+      <small>Title:</small> {{limit song.title 15}}
+    </h2>
+    <p>
+      <small>Artist:</small>
+      {{#if song.artist}}
+        {{song.artist}}
+      {{else}}
+        No artist provided.
+      {{/if}}
+    </p>
+    <button type="submit" class="btn btn-danger delete-song">Remove</button>
+  </section>
+
+{{/each}}
