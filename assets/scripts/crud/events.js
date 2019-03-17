@@ -44,32 +44,14 @@ const onGetUserSongs = function (event) {
 const onUpdateSong = function (event) {
   event.preventDefault()
 
-  const data = getFormFields(event.target)
-  const song = data.song
+  const id = $(event.target).data('id')
+  const formData = getFormFields(event.target)
 
-  if (song.title === '') {
-    $('#message').html('<p>Title is required!</p>')
-    $('#message').css('background-color', 'red')
-    $('form').trigger('reset')
-    $('input').trigger('reset')
-    setTimeout(() => {
-      $('#message').text('')
-    }, 3000)
-    return false
-  }
-  if (song.id.length !== 0) {
-    api.update(data)
-      .then(ui.onUpdateSuccess)
-      .catch(ui.onUpdateFailure)
-  } else {
-    $('#message').html('<p>Please provide a song id!</p>')
-    $('#message').css('background-color', 'red')
-    $('form').trigger('reset')
-    $('input').trigger('reset')
-    setTimeout(() => {
-      $('#message').text('')
-    }, 3000)
-  }
+  api.update(id, formData)
+    .then(function () {
+      ui.onUpdateSuccess(id)
+    })
+    .catch(ui.onUpdateFailure)
 }
 
 const onDeleteSong = function (event) {
@@ -99,7 +81,8 @@ const firstIndex = () => {
 const addHandlers = () => {
   $('#create-song').on('submit', onCreateSong)
   $('#show-songs-button').on('submit', onGetUserSongs)
-  $('#song-update').on('submit', onUpdateSong)
+  // $('#song-update').on('submit', onUpdateSong)
+  $('#content').on('submit', '.update-song-form', onUpdateSong)
   $('.content').on('click', '.delete-song', onDeleteSong)
   $('#clear-songs-button').on('submit', onClearSongs)
 }
