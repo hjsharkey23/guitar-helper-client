@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 Guitar Helper
 
 Back-end Repo:
@@ -109,3 +110,5 @@ be something my fellow guitar players will consider using as well. I would
 also eventually like to add to the table in the database to allow for links
 that users can store. Things like youtube links to their favorite lessons
 on the song, or covers they enjoy.
+=======
+>>>>>>> feature
